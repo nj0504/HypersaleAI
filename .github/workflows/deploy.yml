@@ -24,18 +24,18 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '18'  # or whatever version your project requires
+          node-version: '18'  # Change if your project uses a different Node.js version
 
       - name: Install dependencies
         run: npm install
 
       - name: Build project
-        run: npm run build  # use `npm run dev` only if you're sure it's correct
+        run: npm run build
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: ./dist  # or the correct output directory (e.g., out, build, etc.)
+          path: ./dist  # Replace with ./build or ./out if needed
 
   deploy:
     needs: build
